@@ -1,0 +1,25 @@
+function caesarCipher(s, k) {
+    // Write your code here
+    
+    let alpha = Array.from("abcdefghijklmnopqrstuvwxyz")
+    let beta =  alpha.splice(k%26)
+    let omega = beta.concat(alpha)
+    let n = ""
+ for( let i = 0; i < s.length; i ++) {
+     let curr = s.charAt(i);
+     if((curr >= "A"  &&  curr <= "Z" ) || (curr >= "a"  &&  curr <= "z" ))
+     { let cap = curr <= "Z" ? 65:97
+     let l = s.charCodeAt(i)-cap
+     
+     if(curr <=  "Z")
+     n = n.concat(omega[l].toUpperCase())
+     else n = n.concat(omega[l])
+
+         
+     }else
+     n = n.concat(curr)
+     }
+     return n
+     
+
+}
